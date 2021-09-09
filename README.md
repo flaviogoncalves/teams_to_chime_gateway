@@ -1,6 +1,8 @@
 # teams_to_chime_gateway
 Microsoft Teams to AWS Chime Gateway 
 
+If you need assistance to execute this procedures, please contact cloud@wehostvoip.io, assistance on configuration is cherged in an hourly basis. 
+
 ## Description
 
 The teams to chime gateway is an AMI (Amazon Machine Image) dedicated to convert calls from MS teams using SIP and TLS to AWS Chime Voice Connector. This will allow MS Teams users to save on outbound calls avoiding the the cost of subscriber. We estimate a reduction from US$12.00 to US$2.00 per month per subcriber in telephpny costs, by using the gateway
