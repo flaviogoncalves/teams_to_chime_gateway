@@ -38,6 +38,8 @@ Verify the domain and add the appropriate record to your account
 
 Step #4 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway
 
+![image](https://user-images.githubusercontent.com/4958202/132652662-7776e6f8-7d23-473d-a187-8b6fb895ddf9.png)
+
 Step #5 - Optionally you may create a phone number and direct incoming calls to the gateway 
 
 Step #6 - Launch the AMI
