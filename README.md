@@ -21,7 +21,7 @@ To use the teams to chime gateway you should have:
 
 ## AMI
 
-The teams to chime gateway is an AMI available in the AWS marketplace. Search for the AMI number #
+The teams to chime gateway is an AMI available in the AWS marketplace. Search for the AMI number # (Waiting for AWS to publish the server)
 
 ## Instructions
 
