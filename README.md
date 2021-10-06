@@ -1,4 +1,4 @@
-![team_to_chime_480](https://user-images.githubusercontent.com/4958202/136184462-7cf3a151-10b0-43dd-baac-07685086e6be.png)
+![team_to_chime_480](https://user-images.githubusercontent.com/4958202/136184818-cb911b0f-735e-4cd8-b2db-56965b0a1275.png)
 
 # teams_to_chime_gateway
 Microsoft Teams to AWS Chime Gateway 
