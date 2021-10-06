@@ -1,6 +1,6 @@
 ![team_to_chime_480](https://user-images.githubusercontent.com/4958202/136184818-cb911b0f-735e-4cd8-b2db-56965b0a1275.png)
 
-# teams_to_chime_gateway
+# Gateway from Microsoft Teams to AWS Chime Voice Connector
 Microsoft Teams to AWS Chime Gateway 
 
 If you need assistance to execute this procedures, please contact cloud@wehostvoip.io, assistance on configuration is cherged in an hourly basis. 
