@@ -89,7 +89,7 @@ Step #8 - Add a default PSTN usage
 Example:
 
 ```
-Set-CsOnlinePstnUsage -Identity Global -Usage @{Add="Default"}
+Set-CsOnlinePstnUsage -Identity Global -Usage @{Add="Standard"}
 ```
 
 Step #9 Create a voice route
@@ -97,7 +97,7 @@ Step #9 Create a voice route
 Example:
 
 ```
-New-CsOnlineVoiceRoute -Identity "Default" -NumberPattern "^\+" -OnlinePstnGatewayList sbcteams.wehostvoip.io -Priority 1 -OnlinePstnUsage Default
+New-CsOnlineVoiceRoute -Identity "Simple" -NumberPattern "^\+" -OnlinePstnGatewayList sbcteams.wehostvoip.io -Priority 1 -OnlinePstnUsage Standard
 ```
 
 Step #10 Associate a user to a phone number
