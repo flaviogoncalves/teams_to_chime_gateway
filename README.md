@@ -19,7 +19,7 @@ To use the teams to chime gateway you should have:
 1 - Microsoft 365 account\
 2 - Microsoft Teams, any business license.\
 3 - Microsoft Phone System Addon license or “Business Voice without calling plan” Add On License\
-(https://docs.microsoft.com/en-us/microsoftteams/business-voice/country-region-availability)\
+(https://docs.microsoft.com/en-us/microsoftteams/business-voice/country-region-availability) \
 4 - Amazon AWS Account
 
 ## AMI
