@@ -1,3 +1,5 @@
+![Virtualized Network Function](https://user-images.githubusercontent.com/4958202/136183752-19f32bb0-05e1-40b9-b92c-6b907fe6c418.png)
+
 # teams_to_chime_gateway
 Microsoft Teams to AWS Chime Gateway 
 
