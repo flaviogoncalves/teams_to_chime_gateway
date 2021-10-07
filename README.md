@@ -89,7 +89,7 @@ Step #8 - Add a default PSTN usage
 Example:
 
 ```
-Set-CsOnlinePstnUsage -Identity Global -Usage @{Add="Standard"}
+Set-CsOnlinePstnUsage -Identity Global -Usage @{Add="StandardUsage"}
 ```
 
 Step #9 Create a voice route
@@ -97,7 +97,7 @@ Step #9 Create a voice route
 Example:
 
 ```
-New-CsOnlineVoiceRoute -Identity "Simple" -NumberPattern "^\+" -OnlinePstnGatewayList sbcteams.wehostvoip.io -Priority 1 -OnlinePstnUsage Standard
+New-CsOnlineVoiceRoute -Identity "SimpleVoiceRoute" -NumberPattern "^\+" -OnlinePstnGatewayList sbcteams.wehostvoip.io -Priority 1 -OnlinePstnUsage StandardUsage
 ```
 
 Step #10 Associate a user to a phone number
@@ -110,9 +110,15 @@ set-CsUser -Identity "flavio@vofficebr.onmicrosoft.com" -OnPremLineURI tel:+1669
 
 Step #11 Create a voice routing policy called Standard Policy
 
+```
+New-CsOnlineVoiceRoutingPolicy -Identity "StandardPolicy" -OnlinePstnUsages "StandardUsage"
+```
 
 Step #12 Associate a policy to the username
 
+```
+Grant-CsOnlineVoiceRoutingPolicy -Identity "flavio@vofficebr.onmicrosoft.com" -PolicyName "StandardPolicy"
+```
 
 Step #13 - Verify
 
