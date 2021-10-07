@@ -108,13 +108,19 @@ Example:
 set-CsUser -Identity "flavio@vofficebr.onmicrosoft.com" -OnPremLineURI tel:+16692885660 -EnterpriseVoiceEnabled $true -HostedVoiceMail $true
 ```
 
-Step #11 - Verify
+Step #11 Create a voice routing policy called Standard Policy
+
+
+Step #12 Associate a policy to the username
+
+
+Step #13 - Verify
 
 1 - Verify if the gateway is up and running (Check Microsoft Teams, it may take up to 1 hour to synchronize)
 2 - Test to see if you can make external calls, use the E164 +1... to make a call
 3 - Test to see if you can receive external calls, call the AWS chime number and see if it rings. 
 
-Step #12 - Troubleshooting. 
+Step #14 - Troubleshooting. 
 
 Connect the servert thru ssh (putty, ssh)
 Use sudo su to get root access
