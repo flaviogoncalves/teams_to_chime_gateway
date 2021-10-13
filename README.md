@@ -38,7 +38,13 @@ Example: sbcteams.wehostvoip.io
 
 Step #3 - Add this domain to your office365 account. 
 
-Verify the domain and add the appropriate record to your account
+This is probably the most difficult step in the configuration. You need to be administrator of your Office 365 system to perform this task. You have to verify the domain and add the skype for business records in the system. You have to perform three steps
+
+1 - Add the domain to your Office365 tenant
+2 - Verify the domain
+3 - Add the specific records for skype for business
+
+For the SBC domain you don't need to enable the records for e-mail.
 
 Step #4 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway
 
