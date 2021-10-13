@@ -72,7 +72,9 @@ cd /usr/src/fsteams/config
 
 Step #7 - Add the SBC to Microsoft Teams
 
-In a microsoft windows notebook, in administrator mode run:
+Use an windows notebook with Windows 10 for this task. 
+
+Start Powershell in administrator mode and run: 
 
 Example:
 
