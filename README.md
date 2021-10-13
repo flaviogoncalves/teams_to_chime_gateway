@@ -21,6 +21,7 @@ To use the teams to chime gateway you should have:
 3 - Microsoft Phone System Addon license or “Business Voice without calling plan” Add On License\
 (https://docs.microsoft.com/en-us/microsoftteams/business-voice/country-region-availability) \
 4 - Amazon AWS Account
+5 - A Tecnhnician with basic knowledge on TCP/IP, Domain Name System, MS Teams, Office 365, MS PowerShell and AWS Console
 
 ## AMI
 
@@ -28,11 +29,11 @@ The teams to chime gateway is an AMI available in the AWS marketplace. Search fo
 
 ## Instructions
 
-Step #1 - Allocate an Elastic IP from Amazon AWS. 
+Step #1 - In the AWS console with an account with appropriate rights, allocate an Elastic IP from Amazon AWS. 
 
 Example: 44.1.1.1
 
-Step #2 - In the DNS server associate an A record for the elastic IP previously allocated.
+Step #2 - In the DNS server associate an A record for the elastic IP previously allocated. You will have to access your DNS provider (e.g.GoDaddy, Cloudflare, Route53) and create an A record for your SBC. 
 
 Example: sbcteams.wehostvoip.io
 
