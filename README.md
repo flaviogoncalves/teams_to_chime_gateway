@@ -29,31 +29,25 @@ The teams to chime gateway is an AMI available in the AWS marketplace. Search fo
 
 ## Instructions
 
-Step #1 - In the AWS console with an account with appropriate rights, allocate an Elastic IP from Amazon AWS. 
+### Part 1 - AWS Chime and Session Border Controller
 
-Example: 44.1.1.1
+These tasks are made in the AWS Console, you will need to have appropriate rights to administer your AWS account
 
-Step #2 - In the DNS server associate an A record for the elastic IP previously allocated. You will have to access your DNS provider (e.g.GoDaddy, Cloudflare, Route53) and create an A record for your SBC. 
-
-Example: sbcteams.wehostvoip.io
-
-Step #3 - Add this domain to your office365 account. 
-
-This is probably the most difficult step in the configuration. You need to be administrator of your Office 365 system to perform this task. You have to verify the domain and add the skype for business records in the system. You have to perform three steps
-
-1 - Add the domain to your Office365 tenant
-2 - Verify the domain
-3 - Add the specific records for skype for business
-
-For the SBC domain you don't need to enable the records for e-mail.
-
-Step #4 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway
+Step #1 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway. Use UDP and a name and password
 
 ![image](https://user-images.githubusercontent.com/4958202/132652662-7776e6f8-7d23-473d-a187-8b6fb895ddf9.png)
 
-Step #5 - Optionally you may create a phone number and direct incoming calls to the gateway 
+Step #2 - Optionally you may create a phone number and direct incoming calls to the gateway 
 
-Step #6 - Launch the AMI
+Step #3 - In the AWS console with an account with appropriate rights, allocate an Elastic IP from Amazon AWS. 
+
+Example: 44.1.1.1
+
+Step #4 - In the DNS server associate an A record for the elastic IP previously allocated. You will have to access your DNS provider (e.g.GoDaddy, Cloudflare, Route53) and create an A record for your SBC. 
+
+Example: sbcteams.wehostvoip.io
+
+Step #5 Instantiate the Session Border Controller launching the appropriate AMI from the MarketPlace
 
 To configure the AMI, check the example of user data. You can launch the instance with the recommended t2.medium type
 
@@ -77,7 +71,19 @@ cd /usr/src/fsteams/config
 ./install.sh sbcteams.wehostvoip.io 
 ```
 
-Step #7 - Add the SBC to Microsoft Teams
+### Part 2 - Microsft Teams Tenant Configuration
+
+Step #1 - Add your domain to your office365 account. 
+
+This is probably the most difficult step in the configuration. You need to be administrator of your Office 365 system to perform this task. You have to verify the domain and add the skype for business records in the system. You have to perform three steps
+
+1 - Add the domain to your Office365 tenant
+2 - Verify the domain
+3 - Add the specific records for skype for business
+
+For the SBC domain you don't need to enable the records for e-mail.
+
+Step #2 - Add the SBC to Microsoft Teams
 
 Use an windows notebook with Windows 10 for this task. 
 
@@ -93,7 +99,7 @@ Connect-MicrosoftTeams
 New-CsOnlinePSTNGateway -Fqdn sbcteams.wehostvoip.io -SipSignalingPort 5061 -MaxConcurrentSessions 5 -Enabled $true -Bypass $None
 ```
 
-Step #8 - Add a default PSTN usage
+Step #3 - Add a default PSTN usage
 
 Example:
 
@@ -101,7 +107,7 @@ Example:
 Set-CsOnlinePstnUsage -Identity Global -Usage @{Add="StandardUsage"}
 ```
 
-Step #9 Create a voice route
+Step #4 Create a voice route
 
 Example:
 
@@ -109,7 +115,7 @@ Example:
 New-CsOnlineVoiceRoute -Identity "SimpleVoiceRoute" -NumberPattern "^\+" -OnlinePstnGatewayList sbcteams.wehostvoip.io -Priority 1 -OnlinePstnUsage StandardUsage
 ```
 
-Step #10 Associate a user to a phone number
+Step #5 Associate a user to a phone number
 
 Example:
 
@@ -117,25 +123,25 @@ Example:
 set-CsUser -Identity "flavio@vofficebr.onmicrosoft.com" -OnPremLineURI tel:+16692885660 -EnterpriseVoiceEnabled $true -HostedVoiceMail $true
 ```
 
-Step #11 Create a voice routing policy called Standard Policy
+Step #6 Create a voice routing policy called Standard Policy
 
 ```
 New-CsOnlineVoiceRoutingPolicy -Identity "StandardPolicy" -OnlinePstnUsages "StandardUsage"
 ```
 
-Step #12 Associate a policy to the username
+Step #7 Associate a policy to the username
 
 ```
 Grant-CsOnlineVoiceRoutingPolicy -Identity "flavio@vofficebr.onmicrosoft.com" -PolicyName "StandardPolicy"
 ```
 
-Step #13 - Verify
+Step #8 - Verify
 
 1 - Verify if the gateway is up and running (Check Microsoft Teams, it may take up to 1 hour to synchronize)
 2 - Test to see if you can make external calls, use the E164 +1... to make a call
 3 - Test to see if you can receive external calls, call the AWS chime number and see if it rings. 
 
-Step #14 - Troubleshooting. 
+Step #9 - Troubleshooting. 
 
 Connect the servert thru ssh (putty, ssh)
 Use sudo su to get root access
