@@ -71,7 +71,33 @@ cd /usr/src/fsteams/config
 ./install.sh sbcteams.wehostvoip.io 
 ```
 
-### Part 2 - Microsft Teams Tenant Configuration
+Step #6 - Create a security group for your SBC
+
+I tried to make this automatic on the instance creation. Unfortunately, AWS Marketplace does not support ranges in the SG creation. 
+
+Add a security group with the following rules:
+
+Custom UDP UDP 1024 - 65535 34.212.95.128/25 AWS Chime Media
+HTTP TCP 80 0.0.0.0/0 Lets Encrypt
+Custom TCP TCP 8000 0.0.0.0/0 Console
+Custom UDP UDP 1024 - 65535 99.77.253.0/24 AWS Chime Media
+Custom TCP TCP 5060 - 5061 99.77.253.0/24 AWS Chime Signaling
+Custom UDP UDP 1024 - 65535 34.223.21.0/25 AWS Chime Media
+Custom UDP UDP 5060 99.77.253.0/24 AWS Chime Signaling
+Custom TCP TCP 5061 52.114.14.70/32 MS Teams Signaling
+Custom TCP TCP 5061 52.114.7.24/32 MS Teams Signaling
+Custom UDP UDP 16384 - 32768 52.112.0.0/14 MS teams Media
+Custom UDP UDP 1024 - 65535 52.55.62.128/25 AWS Media
+Custom TCP TCP 5061 52.114.75.24/32 MS Teams Signaling
+Custom TCP TCP 5060 - 5061 3.80.16.0/23 AWS Chime Range
+Custom UDP UDP 5000 - 65000 3.80.16.0/23 AWS Chime Range
+Custom TCP TCP 5061 52.114.76.76/32 MS Teams Signaling
+Custom TCP TCP 16384 - 32768 52.120.0.0/14 MS teams Media
+Custom TCP TCP 5061 52.114.148.0/24 MS Teams Signaling
+Custom TCP TCP 5061 52.114.14.46/32 MS Teams Signaling
+Custom UDP UDP 1024 - 65535 52.55.63.0/25 AWS Chime Media
+
+### Part 2 - Microsoft Teams Tenant Configuration
 
 Step #1 - Add your domain to your office365 account. 
 
