@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/4958202/137627828-9a729407-f00e-4f55-99ab-c56911b4165a.png=480x480)
+![image](https://user-images.githubusercontent.com/4958202/137627828-9a729407-f00e-4f55-99ab-c56911b4165a.png =480)
 
 # Gateway from Microsoft Teams to AWS Chime Voice Connector
 Microsoft Teams to AWS Chime Gateway 
