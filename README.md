@@ -1,13 +1,14 @@
 <img src="https://user-images.githubusercontent.com/4958202/137627828-9a729407-f00e-4f55-99ab-c56911b4165a.png" alt="image" style="width:240px;"/>
 
-# Gateway from Microsoft Teams to AWS Chime Voice Connector
-Microsoft Teams to AWS Chime Gateway 
+# Gateway from Microsoft Teams to SIP
 
-If you need assistance to execute this procedures, please contact cloud@wehostvoip.io, assistance on configuration is cherged in an hourly basis. 
+This instruction were tested with a connection to AWS Chime Voice Connector 
+
+If you need assistance to execute this procedures, please contact cloud@wehostvoip.io, assistance on configuration is charged in an hourly basis. 
 
 ## Description
 
-The teams to chime gateway is an AMI (Amazon Machine Image) dedicated to convert calls from MS teams using SIP and TLS to AWS Chime Voice Connector. This will allow MS Teams users to save on outbound calls avoiding the the cost of subscriber. We estimate a reduction from US$12.00 to US$2.00 per month per subcriber in telephpny costs, by using the gateway
+The teams to chime gateway is an AMI (Amazon Machine Image) dedicated to convert calls from MS teams using SIP and TLS to AWS Chime Voice Connector or any other SIP trunk. This will allow MS Teams users to save on outbound calls avoiding the the cost of subscriber. We estimate a reduction from US$12.00 to US$2.00 per month per subcriber in telephpny costs, by using the gateway.
 
 ** Please consult, if you want to install this gateway in your internal network or if you want an image for your own ITSP provider **
 (cloud_at_wehostvoip.io)
@@ -23,16 +24,17 @@ To use the teams to chime gateway you should have:
 4 - Amazon AWS Account\
 5 - A Tecnhnician with basic knowledge on TCP/IP, Domain Name System, MS Teams, Office 365, MS PowerShell and AWS Console
 
+You definitelty will require a lot of patience to wait for the MS Teanms tenant to sinchronize, sometimes up to 4 hours for some steps.
+
 ## AMI
 
 The teams to chime gateway is an AMI available in the AWS marketplace. Search for the AMI number # (Waiting for AWS to publish the server)
 
 ## Instructions
 
-### Part 1 - AWS Chime and Session Border Controller
+### Part 1 - AWS Chime Voice Connector and the Session Border Controller
 
 These tasks are made in the AWS Console, you will need to have appropriate rights to administer your AWS account
-
 
 Step #1 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway. Use UDP and a name and password
 
@@ -46,7 +48,7 @@ Example: 44.1.1.1
 
 Step #4 - In the DNS server associate an A record for the elastic IP previously allocated. You will have to access your DNS provider (e.g.GoDaddy, Cloudflare, Route53) and create an A record for your SBC. 
 
-Example: sbcteams.wehostvoip.io
+Example: sbcteams.wehostvoip.io (Please use your own Fully Qualified Domain Name)
 
 Step #5 Instantiate the Session Border Controller launching the appropriate AMI from the MarketPlace
 
