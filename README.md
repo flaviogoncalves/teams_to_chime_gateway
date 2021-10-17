@@ -1,4 +1,4 @@
-![team_to_chime_480](https://user-images.githubusercontent.com/4958202/136184818-cb911b0f-735e-4cd8-b2db-56965b0a1275.png)
+![image](https://user-images.githubusercontent.com/4958202/137627828-9a729407-f00e-4f55-99ab-c56911b4165a.png)
 
 # Gateway from Microsoft Teams to AWS Chime Voice Connector
 Microsoft Teams to AWS Chime Gateway 
@@ -32,6 +32,7 @@ The teams to chime gateway is an AMI available in the AWS marketplace. Search fo
 ### Part 1 - AWS Chime and Session Border Controller
 
 These tasks are made in the AWS Console, you will need to have appropriate rights to administer your AWS account
+
 
 Step #1 - In the AWS Chime service create a voice connector and authorize outbound calls from the address of the teams to chime gateway. Use UDP and a name and password
 
