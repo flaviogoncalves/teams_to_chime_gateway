@@ -28,7 +28,9 @@ You definitelty will require a lot of patience to wait for the MS Teanms tenant 
 
 ## AMI
 
-The teams to chime gateway is an AMI available in the AWS marketplace. Search for the AMI number # (Waiting for AWS to publish the server)
+The teams to chime gateway is an AMI available in the AWS marketplace.
+
+https://aws.amazon.com/marketplace/pp/prodview-plov4i25svty6
 
 ## Instructions
 
